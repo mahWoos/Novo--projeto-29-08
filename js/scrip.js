@@ -1,4 +1,4 @@
-import {aleatorio} from './aleatorio.js';
+import {aleatorio, nome} from './aleatorio.js';
 import {perguntas} from './perguntas.js';
 
 const caixaPrincipal = document.querySelector(".caixa-principal");
@@ -41,7 +41,7 @@ function respostaSelecionada(opcaoSelecionada) {
 }
 
 function mostraResultado() {
-    caixaPerguntas.textContent = "A importância dessas perguntas foi mostrar aos alunos que os logaritmos têm relevância na vida real. Através de exemplos práticos e curiosidades, eles puderam entender como esse conceito matemático está presente em diversos aspectos do nosso cotidiano e em várias áreas de conhecimento.";
+    caixaPerguntas.textContent = `A importância dessas perguntas foi mostrar aos alunos que os logaritmos têm relevância na vida real. Através de exemplos práticos e curiosidades, eles puderam entender como esse conceito matemático está presente em diversos aspectos do nosso cotidiano e em várias áreas de conhecimento.${nome}`;
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("mostrar");
@@ -55,4 +55,11 @@ function jogaNovamente(){
     mostraPergunta();
 }
 
+function substituiNome(){
+    for(const pergunta of perguntas){
+        pergunta.enunciado = pergunta.enunciado.replace(/você/g, nome);
+    }
+}
+
+substituiNome();
 mostraPergunta();
