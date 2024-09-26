@@ -36,12 +36,7 @@ function mostraAlternativas(){
 function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
     historiaFinal += afirmacoes + " ";
-    if(opcaoSelecionada.proxima !== undefined){
-        atual = opcaoSelecionada.proxima;
-    }else{
-        mostraResultado();
-        return;
-    }
+    atual++;
     mostraPergunta();
 }
 
@@ -67,4 +62,3 @@ function substituiNome(){
 }
 
 substituiNome();
-mostraPergunta();
